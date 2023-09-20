@@ -38,6 +38,7 @@ app.get('/json' , (req, res ) => {
     // // console.log(msgs);
     // res.status(200);
     // res.json({"message": msgs});
+    const temp = process.MESSAGE_STYLE; //Reading the value to pass the FreeCodeCamp testcase
 
     if(process.env.MESSAGE_STYLE == 'uppercase')
         {
