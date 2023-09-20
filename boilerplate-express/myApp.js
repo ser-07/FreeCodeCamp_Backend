@@ -32,12 +32,22 @@ app.get('/', (req, res)=>{
 
 // #5
 app.get('/json' , (req, res ) => {
-    const str1 = "Hello json";
-    console.log(process.env)
-    let msgs = process.env.MESSAGE_STYLE === 'uppercase' ? str1.toUpperCase() : str1;
-    console.log(msgs);
-    res.status(200);
-    res.json({"message": msgs});
+    // const str1 = "Hello json";
+    // console.log(process.env)
+    // let msgs = process.env.MESSAGE_STYLE === 'uppercase' ? str1.toUpperCase() : str1;
+    // // console.log(msgs);
+    // res.status(200);
+    // res.json({"message": msgs});
+
+    if(process.env.MESSAGE_STYLE == 'uppercase')
+        {
+            res.status(200);
+            res.json({  "message": "HELLO JSON"})
+        }
+        else {
+            res.status(200);
+            res.json({"message": "Hello json"})
+        }
 });
 
 
