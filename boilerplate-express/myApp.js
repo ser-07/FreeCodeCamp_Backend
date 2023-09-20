@@ -29,6 +29,12 @@ app.get('/', (req, res)=>{
     res.sendFile(absolutePath);
 });
 
+// #5
+app.get('/json' , (req, res ) => {
+    res.status(200);
+    res.json({"message": "Hello json"});
+});
+
 
 
 
