@@ -38,6 +38,10 @@ const createAndSavePerson = (done) => {
 };
 
 const createManyPeople = (arrayOfPeople, done) => {
+  Person.create(arrayOfPeople).then((res)=> {console.log(res); done(null,res);})
+                              .catch((err)=>{console.log(`Error: ${err}`); done(err)});
+
+
   done(null /*, data*/);
 };
 
