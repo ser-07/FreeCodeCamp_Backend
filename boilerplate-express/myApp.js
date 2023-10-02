@@ -60,10 +60,17 @@ app.get('/now', function(req, res, next) {
     res.json({"time": req.time});
   });
 
-
+//#8
   app.get('/:word/echo', (req, res)=>{
     let word = req.params.word;
     res.json({"echo": word});
+  })
+
+  //#9
+  app.get('/name/', (req, res)=>{
+    //get params from query string URL
+    const { first, last}  = req.query;
+    res.json({"name": `${first} ${last}`})
   })
 
 
