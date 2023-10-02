@@ -6,7 +6,7 @@ let bodyParser = require('body-parser');
 
 var urlencodedParser = bodyParser.urlencoded({ extended: false })
 
-//#6
+//#6 #10
 app.use(function(req, res, next){
     console.log(`${req.method} ${req.path} - ${req.ip}`);
     next();
@@ -75,6 +75,11 @@ app.get('/now', function(req, res, next) {
     res.json({"name": `${first} ${last}`})
   })
 
+  //#11
+  app.post('/name', (req, res)=>{
+    const { first, last}  = req.body;
+    res.json({"name": `${first} ${last}`})
+  }), 
 
 
 
