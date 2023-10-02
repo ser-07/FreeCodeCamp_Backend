@@ -26,7 +26,7 @@ const createAndSavePerson = (done) => {
   let newData = new PersonModel({
     name: 'Sreejith',
     age:25,
-    faviriteFoods:['Biriyani','Idli']
+    favoriteFoods:['Biriyani','Idli']
   });
 
   newData.save()
@@ -51,7 +51,8 @@ const findPeopleByName = (personName, done) => {
 };
 
 const findOneByFood = (food, done) => {
-  done(null /*, data*/);
+  Person.findOne({favoriteFoods: food }).then((res)=> {console.log(res); done(null,res);})
+  .catch((err)=>{console.log(`Error: ${err}`); done(err)});
 };
 
 const findPersonById = (personId, done) => {
