@@ -81,14 +81,18 @@ const removeById = (personId, done) => {
 
 const removeManyPeople = (done) => {
   const nameToRemove = "Mary";
-
-  done(null /*, data*/);
+  Person.remove({name: nameToRemove}).then(res => done(null, res)).catch(err => done(err));
 };
 
 const queryChain = (done) => {
   const foodToSearch = "burrito";
-
-  done(null /*, data*/);
+  Person.find({ favoriteFoods: foodToSearch })
+    .sort({ name: 1 })
+    .limit(2)
+    .select(['name', 'favoriteFoods'])
+    .exec()
+    .then(res => done(null, res))
+    .catch(err => done(err));
 };
 
 /** **Well Done !!**
