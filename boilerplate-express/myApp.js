@@ -54,11 +54,17 @@ app.get('/json' , (req, res ) => {
 
 
 app.get('/now', function(req, res, next) {
-    req.time = new Date().toString(); 
+    req.time = new Date().toLocaleTimeString(); 
     next();
   }, function(req, res) {
     res.json({"time": req.time});
   });
+
+
+  app.get('/:word/echo', (req, res)=>{
+    let word = req.params.word;
+    res.json({"echo": word});
+  })
 
 
 
