@@ -2,13 +2,15 @@ let express = require('express');
 let app = express();
 const path = require('path');
 require('dotenv').config();
+let bodyParser = require('body-parser');
 
+var urlencodedParser = bodyParser.urlencoded({ extended: false })
 
 //#6
 app.use(function(req, res, next){
     console.log(`${req.method} ${req.path} - ${req.ip}`);
     next();
-    });
+    }, urlencodedParser);
 
 console.log("Hello World");
 
