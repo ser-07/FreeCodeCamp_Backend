@@ -36,16 +36,16 @@ app.get('/api/:dateInput', (req, res)=>{
   let incorrectFormatFlg = reg.test(req.params.dateInput);
 
   const datefromDate = new Date(req.params.dateInput);
-  const dateFromUnixTimestamp = Date(Number(req.params.dateInput));
+  const dateFromUnixTimestamp = new Date(Number(req.params.dateInput));
   
-  // console.log(req.params.dateInput,incorrectFormatFlg, datefromDate, dateFromUnixTimestamp);
+  console.log(req.params.dateInput,typeof(req.params.dateInput),incorrectFormatFlg, datefromDate, dateFromUnixTimestamp);
   // console.log(typeof(req.params.dateInput), req.params.dateInput, date1);
   // console.log(date1 == 'Invalid Date');
   if(datefromDate != 'Invalid Date'){
     return res.status(200).json({"unix":datefromDate.valueOf(),"utc":datefromDate.toUTCString()});
   }
   else if(incorrectFormatFlg && dateFromUnixTimestamp){
-    return res.status(200).json({"unix":req.params.dateInput,"utc":dateFromUnixTimestamp});
+    return res.status(200).json({"unix":req.params.dateInput,"utc":dateFromUnixTimestamp.toUTCString()});
      
   }
   res.json({ error : "Invalid Date" })
