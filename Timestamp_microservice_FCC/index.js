@@ -45,7 +45,7 @@ app.get('/api/:dateInput', (req, res)=>{
     return res.status(200).json({"unix":datefromDate.valueOf(),"utc":datefromDate.toUTCString()});
   }
   else if(incorrectFormatFlg && dateFromUnixTimestamp){
-    return res.status(200).json({"unix":req.params.dateInput,"utc":dateFromUnixTimestamp.toUTCString()});
+    return res.status(200).json({"unix":Number(req.params.dateInput),"utc":dateFromUnixTimestamp.toUTCString()});
      
   }
   res.json({ error : "Invalid Date" })
