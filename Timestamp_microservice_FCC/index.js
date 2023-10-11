@@ -25,20 +25,20 @@ app.get("/api/hello", function (req, res) {
 });
 
 app.get('/api/', (req,res)=> {
-  console.log("Jere");
+  // console.log("Jere");
   const date1 = new Date();
   res.json({"unix":date1.valueOf(),"utc":date1.toUTCString()});
 })
 
 app.get('/api/:dateInput', (req, res)=>{
-  console.log("Here");
+  // console.log("Here");
   let reg = /^\d+$/;
   let incorrectFormatFlg = reg.test(req.params.dateInput);
 
   const datefromDate = new Date(req.params.dateInput);
   const dateFromUnixTimestamp = new Date(Number(req.params.dateInput));
   
-  console.log(req.params.dateInput,typeof(req.params.dateInput),incorrectFormatFlg, datefromDate, dateFromUnixTimestamp);
+  // console.log(req.params.dateInput,typeof(req.params.dateInput),incorrectFormatFlg, datefromDate, dateFromUnixTimestamp);
   // console.log(typeof(req.params.dateInput), req.params.dateInput, date1);
   // console.log(date1 == 'Invalid Date');
   if(datefromDate != 'Invalid Date'){
