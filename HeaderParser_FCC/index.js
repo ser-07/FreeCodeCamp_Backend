@@ -27,7 +27,7 @@ app.get('/api/hello', function (req, res) {
 //Adding new API
 app.get('/api/whoami',(req,res)=>{
   // console.log(req.headers['user-agent']);
-  res.json({"ipaddress":req.socket.localAddress,"Language":req.headers['accept-language'],"software":req.headers['user-agent']});
+  res.json({"ipaddress":req.socket.localAddress,"language":req.headers['accept-language'],"software":req.headers['user-agent']});
 
 })
 
